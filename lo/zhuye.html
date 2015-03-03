@@ -12,7 +12,7 @@
 	<div class="z-header">
 		<div class="top_content">
 			<img src="image/logo.png" alt="">
-			<a href="">主站</a>
+			<a href="zhuye.html">主站</a>
 			<a href="">画友</a>
 			<a href="">游戏中心</a>
 			<a href="">直播</a>
@@ -29,17 +29,17 @@
 	</div>
 	<div class="num">
 		<div class="num_content">
-			<a href="l/zhuye.html">首页</a>
-			<a href="l/anime.html">动画</a>
-			<a href="l/fanju.html">番剧</a>
-			<a href="l/music.html">音乐</a>
-			<a href="l/dance.html">舞蹈</a>
-			<a href="l/game.html">游戏</a>
-			<a href="l/sct.html">科技</a>
-			<a href="l/fun.html">娱乐</a>
-			<a href="l/guichu.html">鬼畜</a>
-			<a href="l/movie.html">电影</a>
-			<a href="l/dianshiju.html">电视剧</a>
+			<a href="zhuye.html">首页</a>
+			<a href="anime.html">动画</a>
+			<a href="fanju.html">番剧</a>
+			<a href="music.html">音乐</a>
+			<a href="dance.html">舞蹈</a>
+			<a href="game.html">游戏</a>
+			<a href="sct.html">科技</a>
+			<a href="fun.html">娱乐</a>
+			<a href="guichu.html">鬼畜</a>
+			<a href="movie.html">电影</a>
+			<a href="dianshiju.html">电视剧</a>
 			<a href="" class="rank">
 			</a>
 			<div class="search">
@@ -2030,7 +2030,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/hot_id.php",true);
+			xhr.open("get","hot_id.php",true);
 			xhr.send(null);
 		}
 		function hot_name(){//排在首页最上方的几个视频的视频名字 访问你后台的 hot_player_name.php  你对数据库进行判断 echo出6个点击最高的 用|隔开 点击高的排在前面
@@ -2050,7 +2050,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/hot_player_name.php",true);
+			xhr.open("get","hot_player_name.php",true);
 			xhr.send(null);
 		}
 		function hot_click(){//排在首页最上方的几个视频的视频点击量 访问你后台的 hot_click_num.php  你对数据库进行判断 echo出他们的点击量 用|隔开 点击高的排在前面
@@ -2069,7 +2069,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/hot_click_num.php",true);
+			xhr.open("get","hot_click_num.php",true);
 			xhr.send(null);
 		}
 		function hot_up(){//排在首页最上方的几个视频的视频UP主名字 访问你后台的 hot_up_num.php  你对数据库进行判断 echo出他们的up名字 用|隔开 点击高的排在前面 与前面的一一对应
@@ -2088,7 +2088,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/hot_up_num.php",true);
+			xhr.open("get","hot_up_num.php",true);
 			xhr.send(null);
 		}
 		function a_k_id(){//排在首页各个分区的几个视频的视频ID 访问你后台的 a_k_id.php  你对数据库进行判断 echo出他们的id 用|隔开(每8个用一个-隔开)  以我的主页顺序来(注意！！！！！！！！！！！！！！！！！这里的主页顺序是 动画——番剧....每个小分区都以视频的上传时间来 最新的排在最前面 不同分区干扰 下面以a_k开头的全部以这个标准 )一一对应
@@ -2112,7 +2112,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_id.php",true);
+			xhr.open("get","a_k_id.php",true);
 			xhr.send(null);
 		}
 		function a_k_name(){//排在首页各个分区的几个视频的视频名称 访问你后台的 a_k_name.php  你对数据库进行判断 echo出他们的name名字 用|隔开(每8个用一个-隔开) 点以我的主页顺序来一一对应
@@ -2136,7 +2136,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_name.php",true);
+			xhr.open("get","a_k_name.php",true);
 			xhr.send(null);
 		}
 		function a_k_play_num(){//排在首页各个分区的几个视频的视频播放次数 访问你后台的 a_k_play_num.php  你对数据库进行判断 echo出他们的视频播放次数 用|隔开(每8个用一个-隔开) 以我的主页顺序来一一对应
@@ -2160,7 +2160,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_play_num.php",true);
+			xhr.open("get","a_k_play_num.php",true);
 			xhr.send(null);
 		}
 		function a_k_danmu_num(){//排在首页各个分区的几个视频的弹幕条数 访问你后台的 a_k_danmu_num.php  你对数据库进行判断 echo出他们的视频弹幕数量 用|隔开(每8个用一个-隔开) 以我的主页顺序来一一对应
@@ -2184,7 +2184,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_danmu_num.php",true);
+			xhr.open("get","a_k_danmu_num.php",true);
 			xhr.send(null);
 		}
 		function a_k_pinglun_num(){//排在首页各个分区的几个视频的视频评论次数 访问你后台的 a_k_pinglun_num.php  你对数据库进行判断 echo出他们的视频评论次数 用|隔开(每8个用一个-隔开)  以我的主页顺序来一一对应
@@ -2207,7 +2207,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_pinglun_num.php",true);
+			xhr.open("get","a_k_pinglun_num.php",true);
 			xhr.send(null);
 		}
 		function a_k_time(){//排在首页各个分区的几个视频的视频的上传时间 访问你后台的 a_k_time.php  你对数据库进行判断 echo出他们的视频的上传时间 用|隔开(每8个用一个-隔开) 以我的主页顺序来一一对应
@@ -2230,7 +2230,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_time.php",true);
+			xhr.open("get","a_k_time.php",true);
 			xhr.send(null);
 		}
 		function a_k_up(){//排在首页各个分区的几个视频的视频的up主 访问你后台的 a_k_up.php  你对数据库进行判断 echo出他们的视频的up主 用|隔开(每8个用一个-隔开) 以我的主页顺序来一一对应
@@ -2253,7 +2253,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_up.php",true);
+			xhr.open("get","a_k_up.php",true);
 			xhr.send(null);
 		}
 		function a_k_tag(){//排在首页各个分区的几个视频的视频的简介 访问你后台的 a_k_tag.php  你对数据库进行判断 echo出他们的视频的简介 用|隔开(每8个用一个-隔开) 以我的主页顺序来一一对应
@@ -2276,7 +2276,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/a_k_tag.php",true);
+			xhr.open("get","a_k_tag.php",true);
 			xhr.send(null);
 		}
 		function right_a_k_id(){//排在首页右边排行的几个视频的视频的ID 访问你后台的 right_a_k_id.php你对数据库进行判断 echo出他们的视频的ID 用|隔开(每6个用一个-隔开) 点击高的排在前面 以我的主页顺序来一一对应
@@ -2299,7 +2299,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/right_a_k_id.php",true);
+			xhr.open("get","right_a_k_id.php",true);
 			xhr.send(null);
 		}
 		function right_a_k_name(){//排在首页右边排行的几个视频的视频的名称 访问你后台的 right_a_k_name.php你对数据库进行判断 echo出他们的视频的名称 用|隔开(每6个用一个-隔开) 点击高的排在前面 以我的主页顺序来 一一对应
@@ -2326,7 +2326,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/right_a_k_name.php",true);
+			xhr.open("get","right_a_k_name.php",true);
 			xhr.send(null);
 		}
 		function right_a_k_img(){//排在首页右边排行的几个视频的视频的图片 只有分区排行第一的才有 访问你后台的 right_a_k_img.php你对数据库进行判断 echo出他们的视频封面地址 用|隔开以我的主页顺序来
@@ -2345,7 +2345,7 @@
 					}
 				}
 			};
-			xhr.open("get","l/right_a_k_img.php",true);
+			xhr.open("get","right_a_k_img.php",true);
 			xhr.send(null);
 		}
 		window.onload = function(){
