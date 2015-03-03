@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili</title>
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="register-css.css">
+</head>
+<body>
+	<div class="top">
+		<div class="top_content">
+			<img src="image/logo.png" alt="">
+			<a href="zhuye.html">主站</a>
+			<a href="">画友</a>
+			<a href="">游戏中心</a>
+			<a href="">直播</a>
+			<a href="">手机端</a>
+			<a style="color:red;" href="user.html">个人中心</a>
+		</div>
+	</div>
+	<div class="top-bg">
+		<div class="top-bg_content"></div>
+	</div>
+	<div class="title">
+		<div class="bg"></div>
+		<div></div>
+	</div>
+	<div class="content">
+		<form  method="post" action="registration.php"><!-- 下面的账号 昵称 都要进数据库对比一下 不能重复  -->
+			<input type="text" name="user" placeholder="登陆账号" class="form-control"/><span class="p1" id="p1"></span>
+			<input type="password" name="password" maxlength="16" placeholder="登陆密码(6-16字符组成)" class="form-control"/><span class="p1" id="p2"></span>
+			<input type="password" name="password-a" maxlength="16" placeholder="再次填写登陆密码" class="form-control"/><span class="p1" id="p3"></span>
+			<input type="text" maxlength= "6" name="text" placeholder="昵称" class="form-control"/><span class="p1" id="p4"></span>
+			<input type="checkbox" class="check"><span>我已同意<a href="https://account.bilibili.com/register/licence" class="accpt"><<哔哩哔哩网注册协议>></a></span>
+			<input type="submit" value="注册" class="btn btn-info">
+		</form>
+		<a href="login.html" class="login">已有账号,直接登录></a>
+	</div>
+	<div class="footer">
+		<div class="footer_content">
+			<div class="divo">
+				<div><a href="">关于哔哩哔哩动画</a></div>
+				<div><a href="">加入我们</a> | <a href="">联系我们</a></div>
+				<div>官方微博：<a href="">新浪微博</a> | <a href="">腾讯微博</a></div>
+				<div><a href="">资源免费声明</a></div>
+			</div>
+			<div class="divo">
+				<div><a href="">弹幕测试</a> | <a href="">高级弹幕</a></div>
+				<div><a href="">常见使用说明</a> | <a href="">常见问题（FAQ）</a></div>
+				<div><a href="">建议和BUG报告</a></div>
+				<div><a href="">侵权申述</a></div>
+			</div>
+			<div class="divo">
+				<div><a href="">活动专题页</a> | <a href="">RSS订阅</a></div>
+				<div><a href="">哔哩哔哩名人堂</a></div>
+				<div><a href="">壁纸下载</a></div>
+				<div><a href="">补档认领处</a></div>
+			</div>
+			<div class="divo" style="border-right:none">
+				<div><a href="">画友 - beta</a></div>
+				<div><a href="">第九频道</a></div>
+				<div><a href="">资讯</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-z">
+		<div class="footer-z_content">
+			<div></div>
+			<div><span>广播电视节目制作经营许可证：（沪）字第510号 网络文化经营许可证：沪网文【2011】0602-063<br/>
+互联网ICP备案：沪ICP备13044862号-1　信息网络传播视听节目许可证：0910417<br/>
+互联网ICP备案：沪ICP备13044862号-1 信息网络传播视听节目许可证：0910417<br/>
+声明:本站不提供任何视听上传服务，所有内容均来自正规视频站点所提供的公开引用资源</span></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	function waringText(){
+		var input = document.getElementsByTagName("input");
+		var op1 = document.getElementById("p1");
+		var op2 = document.getElementById("p2");
+		var op3 = document.getElementById("p3");
+		var op4 = document.getElementById("p4");
+		// function a(element,num,p){
+		// 	if(element.value.length < num||element.value == ""){
+		// 		if(element.name == "user"){
+		// 			p.innerHTML = "账号应为8-16字符";
+		// 		}else{
+		// 			p.innerHTML = "密码应为6-16字符";
+		// 		}
+		// 	}else{ 
+		// 		p.innerHTML = "";
+		// 	}
+		// }
+		// function b(){
+		// 	if(input[2].value != input[1].value||input[2].value == ""){
+		// 		op3.innerHTML = "两次输入密码不一致";
+		// 	}else{
+		// 		op3.innerHTML = "";
+		// 	}
+		// }
+		function abc(element,num,p){
+			element.onblur = function(){
+				if(element.value.length < num&&element.value!=""){
+					if(element.name == "user"){
+						p.innerHTML = "账号应为8-16字符";
+					}else{
+						p.innerHTML = "密码应为6-16字符";
+					}
+				}else{ 
+					p.innerHTML = "";
+				}
+			}
+			element.onkeydown = function(){
+				p.innerHTML = "";
+			}
+		}
+		function bcd(){
+			input[2].onblur = function(){
+				if(input[2].value != input[1].value&&input[2].value != ""){
+					op3.innerHTML = "两次输入密码不一致";
+				}else{
+					op3.innerHTML = "";
+				}
+			}
+			input[2].onkeydown = function(){
+				op3.innerHTML = "";
+			}
+		}
+		abc(input[0],8,op1);
+		abc(input[1],6,op2);
+		bcd();
+		if(input[4].checked == true){
+				input[5].disabled = false;
+			}else{
+				input[5].disabled = true;
+		}
+		input[4].onclick =function(){
+			if(input[4].checked == true){
+				input[5].disabled = false;
+			}else{
+				input[5].disabled = true;
+			}
+		}
+		// input[5].onclick = function(){
+		// 	a(input[0],8,op1);
+		// 	a(input[1],6,op2);
+		// 	b();
+		// }
+	}
+	waringText(); 
+	</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+*{
+	font-size: 14px;
+	line-height: 1.428;
+	font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+}
+body{
+	background: #FAFAFA;
+}
+div,p,ul,body{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a:hover{
+	color: #00a1d6;
+}
+.z-header,.bg,.center,.footer,.num{
+	width: 100%;
+}
+.z-header{
+	background: #f1f1f1;
+	border-bottom: 2px solid #00a1d6;
+}
+.footer_content,.top_content,.bg_content,.num_content,.center_content{
+	width: 980px;
+	margin: 0 auto;
+	position: relative;
+}
+.top_content{
+	height: 44px;
+}
+.top_content a{
+	line-height: 44px;
+	margin-left: 40px;
+}
+.btn{
+	width: 80px;
+	height: 34px;
+	float: right;
+	line-height: 5px;
+	margin: 5px 0 0 0;
+	margin-right: 10px !important;
+}
+.bg{
+	background:url("http://static.hdslb.com/images/header/2015_newyear.jpg") no-repeat;
+	background-size: 100% 100%;
+	border-bottom: 1px solid #dddddd;
+}
+.bg_content{
+	height: 120px;
+}
+.bg_content img{
+	margin-top: 15px;
+}
+.num{
+	border-bottom: 1px solid #dddddd;
+	background: #fff;
+}
+.num_content{
+	height: 40px;
+	position: relative;
+}
+.num_content a{
+	line-height: 40px;
+	margin-right: 25px;
+}
+.rank{
+	display: block;
+	width: 80px;
+	height: 40px;
+	background: url("image/rank1.png") no-repeat  4px;
+	float: right;
+	margin-right: 240px !important;
+	text-align: right;
+}
+.rank:hover{
+	background-image: url("image/rank.png");
+}
+.search{
+	width: 240px;
+	height: 40px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.form{
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	border-top: none;
+	border-bottom: none;
+	width: 200px;
+	height: 40px;
+	float: left;
+	font-size: 14px;
+	padding: 10px 20px;
+}
+.submit{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border: none;
+	background: #f9f9f9 url("image/search.png") no-repeat 2px 4px;
+}
+.submit:hover{
+	background-image: url("image/search1.png");
+}
+.title{
+	width: 720px;
+	height: 70px;
+	margin-top: 20px;
+	border-bottom: 2px solid #ddd;
+	background: url("http://static.hdslb.com/images/v3images/v_ttl.png") no-repeat 0px 5px;
+}
+h2{
+	font-size: 16px;
+	padding: 16px 0 0 44px;
+	margin-bottom: 8px;
+}
+.title a{
+	margin: 0px 2px;
+	font-size: 10px;
+	color: #666;
+}
+.title span{
+	font-size: 10px;
+	color: #999;
+}
+.time{
+	color: #999;
+	margin-right: 0px;
+}
+.title img{
+	margin-left:14px;
+	position: relative;
+	top: -1.5px;
+}
+.shouchang{
+	display: block;
+	float: right;
+}
+.shouchang:hover{
+	color: #39c;
+}
+.up{
+	position: absolute;
+	top: 0px;
+	left: 740px;
+	width: 240px;
+	height: 76px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fff;
+}
+.up div{
+	width: 230px;
+	height: 64px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+.up div .upimg{
+	margin: 0;
+	width: 64px;
+	height: 64px;
+	float: left;
+	border-radius: 6px;
+	background: url("image/2013-newyear-2560.jpg");
+}
+.up div .upimg + span{
+	line-height: 64px;
+	margin-left: 10px;
+	font-size: 12px;
+}
+.up div .upimg + span + a{
+	line-height: 64px;
+	font-size: 12px;
+	color: #00A1D6;
+	margin-left: 4px;
+}
+.up div .upimg + span + a:hover{
+	color: #f489ad;
+}
+.object{
+	margin-top: 50px;
+	width: 702px;
+	height: 530px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+}
+.bottom{
+	width: 702px;
+	height: 30px;
+	margin-top: -3px;
+}
+.form-control{
+	width: 622px;
+	height: 28px;
+	line-height:28px;
+	font-size: 12px;
+	float: left;
+}
+#sub{
+	width: 80px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	border-radius: 6px;
+	display: block;
+	float: right;
+	color: #fff;
+	background: #00A1D6;
+}
+.sub:hover{
+	background: #ddd;
+	color: #fff;
+}
+.video{
+	overflow: hidden;
+}
+.danmu{
+	margin-top: 50px;
+	width: 278px;
+	height: 530px;
+	background: #fff;
+	float: left;
+	overflow-y:scroll;
+}
+.inf{
+	width: 260px;
+}
+.inf:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.inf div{
+	width: 86px;
+	float: left;
+	border-bottom: 1px solid #ddd;
+	height: 20px;
+}
+.inf div span{
+	color: #999;
+	font-size: 10px;
+}
+.div2{
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.inf1{
+	width: 260px;
+	border-bottom: 1px solid #ddd;
+	background: #FAFAFA;
+}
+.inf1:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.inf1 div{
+	float: left;
+	height: 20px;
+	color: #999;
+	line-height: 20px;
+	font-size: 10px;
+}
+
+.div4{
+	padding-right: 26px;
+	padding-left: 4px;
+	width: 54px;
+}
+.div5{
+	padding-right: 96px;
+}
+.inf2{
+	background: #fff;
+}
+.video:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.tag{
+	width: 978px;
+	margin-top: 10px;
+	padding: 10px;
+	color: #7f7d7c;
+	border: 1px solid #ddd;
+}
+.pinglun{
+	margin-top: 10px;
+	width: 702px;
+	overflow: hidden;
+}
+.img{
+	width: 702px;
+	height: 160px;
+	overflow: hidden;
+}
+.click{
+	display: block;
+	width: 322px;
+	margin: 39.5px 180px
+}
+.ipt-txt{
+	font-size: 14px;
+	border-radius: 6px;
+	width: 702px;
+	height: 120px;
+	max-width: 702px;
+	max-height: 120px;
+}
+.btn{
+	margin-right: 0;
+}
+.neirong{
+	width: 702px;
+	margin-top: 40px;
+	position: relative;
+	display: none;
+}
+.msg{
+	width: 702px;
+	min-height: 92px;
+	padding: 10px 0px;
+	border-bottom: 1px solid #ddd;
+}
+.msg img{
+	width: 52px;
+	height: 52px;
+	float: left;
+}
+.msg a{
+	color: #00A1D6;
+	margin-left: 6px;
+	font-size: 12px;
+}
+.msg span{
+	color: #999;
+	margin-left: 10px;
+	font-size: 12px;
+}
+.msg p{
+	font-size: 14px;
+	width: 680px;
+	margin-top: 4px;
+	padding-left: 60px;
+}
+.msg .re{
+	color: #999;
+	margin-left: 660px;
+}
+.msg .re:hover{
+	color: #00A1D6;
+}
+#innerPage{
+	position: absolute;
+	left: 358.5px;
+	display: none;
+}
+#lastpage{
+	width: 36px;
+	height: 27px;
+	background: #fff;
+	border: 1px solid #dedede;
+	position: absolute;
+	font-size: 10px;
+	border-radius: 6px;
+	z-index: 1;
+	display: none;
+}
+#lastpage{
+	left: 648.5px;
+}
+#lastpage:hover{
+	background: #dedede;
+}
+.footer{
+	border-top: 1px solid #dddddd;
+}
+.footer_content{
+	padding-top: 50px;
+	height: 160px;
+}
+.footer_content div span{
+	font-size: 12px;
+}
+.footer_content div{
+	width: 379px;
+	height: 53px;
+	background: url("image/a.jpg");
+	float: left;
+}
+.footer_content div + div{
+	margin-left: 20px;
+	width: 550px;
+	background: none;
+}

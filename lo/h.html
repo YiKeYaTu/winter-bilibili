@@ -1,0 +1,150 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .hidden{
+            width: 340px;
+            height: 160px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .hidden_a{
+            width: 328px;
+            height: 150px;
+            margin: 0 auto;
+            margin-top: 3.5px;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+        .hidden_b{
+            width: 312px;
+            height: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .hidden_b span{
+            font-size: 12px;
+            color: #222;
+        }
+        .hidden_d{
+            width: 312px;
+            height: 20px;
+            margin: 0 auto;
+            margin-top:6px;
+        }
+        .hidden_c{
+            padding-top: 6px;
+            width: 312px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        .hidden_c img{
+            float: left;
+            width: 96px;
+            height: 60px;
+        }
+        .hidden_c p{
+            float: left;
+            width: 200px;
+            margin-left: 14px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            height: 40px;
+            overflow: hidden;
+            font-size: 12px;
+            color: #b9b9b9;
+
+        }
+        .hidden_c span{
+            font-size: 12px;
+            color: #000;
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+        .hidden_d img,  .hidden_d span{
+            float: left;
+            margin-right: 4px;
+            font-size: 12px;
+            color: #b9b9b9;
+        }
+        .hidden_d span{
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden">
+        <div class="hidden_a">
+            <div class="hidden_b">
+                <span>傻逼熊孩子</span>
+            </div>
+            <div class="hidden_d">
+                <img src="image/play_num.png" alt=""><span>50</span>
+                <img src="image/danmu_num.png" alt=""><span>50</span>
+                <img src="image/shouchang.png" alt=""><span>50</span>
+            </div>
+            <div class="hidden_c">
+                <img src="http://i0.hdslb.com/240_180/video/57/57a8ff858815f40a32830c14b510dba1.jpg" alt="">
+                <p>呵呵呵呵哈哈哈啊哈哈哈哈哈哈哈呵呵</p>
+                <span>UO主</span>
+                <span style="float:right">2015.545.55</span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function on(){
+            var h = document.createElement("div");
+            h.className = "hidden";
+            var a = document.createElement("div");
+            a.className = "hidden_a";
+            var b = document.createElement("div");
+            b.className = "hidden_b";
+            var span1 = document.createElement("span");
+            span1.innerHTML = "熊孩子";
+            b.appendChild(span1);
+            var d = document.createElement("div");
+            d.className = "hidden_d";
+            var img1 = document.createElement("img");
+            img1.src = "image/play_num.png";
+            var span2 = document.createElement("span");
+            span2.innerHTML = "50";
+            var img2 = document.createElement("img");
+            img2.src = "image/danmu_num.png";
+            var span3 = document.createElement("span");
+            span3.innerHTML = "50";
+            var img3 = document.createElement("img");
+            img3.src = "image/shouchang.png";
+            var span4 = document.createElement("span");
+            span4.innerHTML = "50";
+            d.appendChild(img1);
+            d.appendChild(span2);
+            d.appendChild(img2);
+            d.appendChild(span3);
+            d.appendChild(img3);
+            d.appendChild(span4);
+            var c = document.createElement("div");
+            c.className = "hidden_c";
+            var img4 = document.createElement("img");
+            img4.src = "http://i0.hdslb.com/240_180/video/57/57a8ff858815f40a32830c14b510dba1.jpg";
+            var p1 = document.createElement("p");
+            p1.innerHTML = "额呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵";
+            var span5 = document.createElement("span");
+            span5.innerHTML = "哈哈"
+            var span6 = document.createElement("span");
+            span6.innerHTML = "2014.254.55";
+            span6.style.cssFloat = "right";
+            c.appendChild(img4);
+            c.appendChild(p1);
+            c.appendChild(span5);
+            c.appendChild(span6);
+            a.appendChild(b);
+            a.appendChild(d);
+            a.appendChild(c);
+            h.appendChild(a);
+            document.body.appendChild(h);
+        }
+        on();</script>
+</body>
+</html>
