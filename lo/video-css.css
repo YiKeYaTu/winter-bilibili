@@ -284,7 +284,8 @@ h2{
 	width: 54px;
 }
 .div5{
-	padding-right: 96px;
+	width: 160px;
+	overflow: hidden;
 }
 .inf2{
 	background: #fff;
