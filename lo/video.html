@@ -158,7 +158,6 @@
 	src();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
-			alert(5);
 			window.location.href = "login.html";
 		}
 		document.getElementById("regH").onclick = function(){
@@ -223,7 +222,6 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
-						alert(xhr.responseText);
 						var a = document.getElementById("danmu");
 						var b = a.children.length;
 						for(var i = 2;i < b;i++){
