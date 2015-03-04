@@ -162,9 +162,7 @@
 	var osub = document.getElementById("sub");
 	var osub1 = document.getElementById("sub1");
 	var time1;
-	get();
-	// get_name();
-	// src();
+	get_name();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
 			alert(5);
@@ -330,6 +328,8 @@
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	shiping_name = xhr.responseText;
+						get();//获取弹幕
+						src();//获取地址
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -355,7 +355,7 @@
 			a.appendChild(d);
 			document.getElementById("danmu").appendChild(a);
 		}
-		function createP(){//以视频的ID来获取视频的评论
+		function createP(){//以视频的name来获取视频的评论
 			var ospan = document.getElementById("innerPage");
 			var oneirong = document.getElementById("neirong");
 			var lbtn1 = document.getElementById("nextpage");

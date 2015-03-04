@@ -162,9 +162,7 @@
 	var osub = document.getElementById("sub");
 	var osub1 = document.getElementById("sub1");
 	var time1;
-	get();
 	get_name();
-	src();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
 			alert(5);
@@ -333,6 +331,8 @@
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	shiping_name = xhr.responseText;
+						get();
+						src();
 					}else{
 						alert("接受数据发生错误");
 					}
