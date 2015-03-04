@@ -6,6 +6,11 @@
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="assets/css/base.css">
 	<link rel="stylesheet" href="video-css.css">
+	<link href="//example.com/path/to/video-js.css" rel="stylesheet">
+	<script src="//example.com/path/to/video.js"></script>
+	<script>
+  		videojs.options.flash.swf = "http://example.com/path/to/video-js.swf"
+	</script>
 </head>
 <body>
 	<div class="z-header">
@@ -79,9 +84,13 @@
 			<input type="button" id="lastpage" value="末页">
 			<div class="video">
 				<div class="object" id="object">
-					<video id="embed"  width="702" height="500" controls>
-  <source id="embed1" src="http://www.w3school.com.cn/i/movie.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+					<video id="embed" style="height:494px !important;background: #000;" class="video-js vjs-default-skin"
+  controls preload="auto" width="640" height=""
+  poster="http://video-js.zencoder.com/oceans-clip.png"
+  data-setup='{"example_option":true}'>
+ <source id="embed1" src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+ <source id="embed2"src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+ <source id="embed3"src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
 </video>
 					<div class="bottom">
 						<input type="text" id="danmu_form" placeholder="说点什么吧" class="form-control">
@@ -158,6 +167,7 @@
 	src();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
+			alert(5);
 			window.location.href = "login.html";
 		}
 		document.getElementById("regH").onclick = function(){
@@ -172,9 +182,17 @@
 		subD();
 	}
 	document.getElementById("embed").onplay = function(){
+		for(var i = 0;i < a.length;i++){
+			var time = parseInt(a[i].style.left.split("px")[0]);
+			$(a[i]).animate({
+				left:"-100px"
+			},time*10.66)
+		}
 		g();
 	}
 	document.getElementById("embed").onpause = function(){
+		var a = document.getElementById("object").getElementsByTagName("span");
+		$(a).stop();
 		clearTimeout(time1);
 	}
 	function src(){//根据视频ID获取视频的地址（仅用于以地址上传视频的方法另一种本地上传的你来写）
@@ -193,6 +211,9 @@
 	}
 	function subP(){//发表评论 我把内容(neirong)发你 你保存起来
 		var b = document.getElementById("comment_text");
+		var date = "";
+    	var jsDate = new Date();
+    	date = jsDate.getFullYear()+"-"+(Number(jsDate.getMonth())+1)+"-"+jsDate.getDate()+" ";
 		var ovalue = b.value;
 		var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
@@ -206,7 +227,7 @@
 					}
 				}
 			};
-			xhr.open("get","addpinglun.php?name=" + shiping_name +"&neirong=" + ovalue,true);
+			xhr.open("get","addpinglun.php?name=" + shiping_name +"&neirong=" + ovalue + "&dtime" + data,true);
 			xhr.send(null);
 	}
 	function subD(){//发表弹幕(你保存 neirong   otime otop dtime这几个数据)
@@ -287,10 +308,10 @@
 					a.innerHTML = array[i].value;
 					a.style.position = "absolute";
 					a.style.top = array[i].top + "px";
-					a.style.left = "700px";
+					a.style.left = "650px";
 					a.style.zIndex = "1";
-					a.style.color = "red";
-					a.style.fontSize = "30px";
+					a.style.color = "#fff";
+					a.style.fontSize = "14px";
 					document.getElementById("object").appendChild(a);
 					$(a).animate({
 						left:"-100px"

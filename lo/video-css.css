@@ -10,6 +10,9 @@ div,p,ul,body{
 	margin: 0;
 	padding: 0;
 }
+#example_video_1{
+	height: 530 !important;
+}
 li{
 	list-style: none;
 }
@@ -192,6 +195,10 @@ h2{
 	overflow: hidden;
 	float: left;
 	position: relative;
+}
+#embed{
+	padding-bottom: 0px;
+	margin-bottom: 10px;
 }
 .bottom{
 	width: 702px;
