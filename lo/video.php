@@ -57,7 +57,7 @@
 				<div>
 					<a href="">主页</a>
 					<span>></span>
-					<a style="color: #39C;font-weight:bold;" href="">音乐</a>
+					<a id="video_tag"style="color: #39C;font-weight:bold;" href="">音乐</a>
 					<span class="time" id="data">2015.11.5 10.45</span>
 					<img src="image/play_num.png" alt="">
 					<span id="ps">1515万</span>
@@ -169,11 +169,11 @@
 	lore();
 	osub1.onclick = function(){
 		subP();
-		send_pinglun_num();
+		// send_pinglun_num();
 	}
 	osub.onclick = function(){
 		subD();
-		send_danmu_num();
+		// send_danmu_num();
 	}
 	document.getElementById("embed").onplay = function(){
 		var a = document.getElementById("object").getElementsByTagName("span");
@@ -344,9 +344,11 @@
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	shiping_name = xhr.responseText;
+					 	document.getElementsByTagName("h2")[0].innerHTML = shiping_name;
 						get();//获取弹幕
 						get_pinglun_num();//获取评论数量
 						src();//获取地址
+						get_video_tag();//获取视频标签
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -413,7 +415,7 @@
 						 		a.appendChild(loucheng);
 						 		a.appendChild(up);
 						 		a.appendChild(op);
-						 		page.appendChild(a);
+						 		page.insertBefore(a,page.children[0]);
 					 		}
 					 		neirong.appendChild(page);
 					 		neirong.appendChild(bottom);
@@ -585,6 +587,20 @@
 			xhr.open("get","echoP.php?name="+shiping_name,true);//我把视频id发你 你get id把那个视频下的评论 评论人的头像地址  评论人的名称发我 评论人的ID 用|连接这种形式（呵呵|iamge/hehe.png|啊啊|250|）
 			xhr.send(null);
 		}
+		function get_video_tag(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("video_tag").innerHTML = xhr.responseText;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","echoTag.php?name="+shiping_name,true);
+			xhr.send(null);
+		}
 		function get_pinglun_num(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
@@ -606,6 +622,20 @@
 			xhr.open("get","echoP.php?name="+shiping_name,true);
 			xhr.send(null);
 		}
+		function get_up(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("up").innerHTML = xhr.responseText;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","getU.php?name="+shiping_name,true);
+			xhr.send(null);
+		}//根据视频name找到up主
 		function send_danmu_num(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
