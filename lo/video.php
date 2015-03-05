@@ -150,6 +150,7 @@
 	</div>
 	<script type="text/javascript">
 	var array = new Array;
+	var arrayP = new Array;
 	var id = window.location.search;//视频ID
 	var shiping_name;//视频名称
 	var oa1 = document.getElementById("click");
@@ -174,9 +175,11 @@
 	lore();
 	osub1.onclick = function(){
 		subP();
+		send_pinglun_num();
 	}
 	osub.onclick = function(){
 		subD();
+		send_danmu_num();
 	}
 	document.getElementById("embed").onplay = function(){
 		var a = document.getElementById("object").getElementsByTagName("span");
@@ -287,6 +290,7 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+
 					 	var array1 = xhr.responseText.split("|");
 					 	for(var i = 0;i < array1.length-1;i+=4){
 					 		var danmu = {};
@@ -299,6 +303,7 @@
 					 	for(var i = 0;i < array.length;i++){
 					 		createD(i);
 					 	}
+						document.getElementById("dms").innerHTML = array.length;
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -346,6 +351,7 @@
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	shiping_name = xhr.responseText;
 						get();//获取弹幕
+						get_pinglun_num();//获取评论数目
 						src();//获取地址
 					}else{
 						alert("接受数据发生错误");
@@ -388,6 +394,7 @@
 					 		ele.value = array[i];
 					 		array1.push(ele);
 					 	}
+					 	arrayP.length = array1.length;
 					 	var num = Math.ceil(array1.length/20);
 					 	var bottom = document.createElement("div");
 					 	bottom.style.width = "702px";
@@ -575,6 +582,7 @@
 					 		}
 					 	}
 					 	neirong.appendChild(bottom);
+					 	document.getElementById("pls").innerHTML = array1.length;
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -583,37 +591,56 @@
 			xhr.open("get","echoP.php?name="+shiping_name,true);//我把视频id发你 你get id把那个视频下的评论 评论人的头像地址  评论人的名称发我 评论人的ID 用|连接这种形式（呵呵|iamge/hehe.png|啊啊|250|）
 			xhr.send(null);
 		}
-		function get_play_num(){//获取某个ID的视频的 播放数 弹幕数 评论数 上传时间 up主 老样子 用|连接  我会发你一个视频ID你来判断输出
+		function get_pinglun_num(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 						var array = xhr.responseText.split("|");
-						var a = document.getElementById("ps");
-						a.innerHTML = array[0];
-						var b = document.getElementById("dms");
-						b.innerHTML = array[1];
-						var c = document.getElementById("pls");
-						c.innerHTML = array[2];
-						var d = document.getElementById("data");
-						d.innerHTML = array[3];
-						var e = document.getElementById("pn");
-						e.innerHTML = array[0];
-						var f = document.getElementById("dm");
-						f.innerHTML = array[1];
-						var g = document.getElementById("pl");
-						g.innerHTML = array[2];
-						var h = document.getElementById("up");
-						h.href = "user.html?id=" + array[4];
-
+					 	var array1 = new Array;
+					 	for(var i = 0;i < array.length-1;i++){
+					 		var ele = {};
+					 		ele.value = array[i];
+					 		array1.push(ele);
+					 	}
+						document.getElementById("pls").innerHTML = array1.length;
 					}else{
 						alert("接受数据发生错误");
 					}
 				}
 			};
-			xhr.open("get","get_inf.php?name" + shiping_name,true);
+			xhr.open("get","echoP.php?name="+shiping_name,true);
 			xhr.send(null);
 		}
+		function send_danmu_num(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("dms").innerHTML = array.length;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","getDN.php?name" + shiping_name+"&number="+array.length,true);
+			xhr.send(null);
+		}
+		function send_pinglun_num(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("pls").innerHTML = arrayP.length;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","getPN.php?name" + shiping_name+"&number="+arrayP.length,true);
+			xhr.send(null);
+		}
+		
 	</script>
 </body>
 </html> 
