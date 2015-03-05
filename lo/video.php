@@ -6,11 +6,7 @@
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="assets/css/base.css">
 	<link rel="stylesheet" href="video-css.css">
-	<link href="//example.com/path/to/video-js.css" rel="stylesheet">
-	<script src="//example.com/path/to/video.js"></script>
-	<script>
-  		videojs.options.flash.swf = "http://example.com/path/to/video-js.swf"
-	</script>
+	
 </head>
 <body>
 	<div class="z-header">
@@ -84,10 +80,8 @@
 			<input type="button" id="lastpage" value="末页">
 			<div class="video">
 				<div class="object" id="object">
-					<video id="embed" style="height:494px !important;background: #000;" class="video-js vjs-default-skin"
-  controls preload="auto" width="640" height=""
-  poster="http://video-js.zencoder.com/oceans-clip.png"
-  data-setup='{"example_option":true}'>
+					<video id="embed" style="width:702px;height:494px !important;background: #000;" class="video-js vjs-default-skin"
+  controls preload="auto" width="640" height="">
  <source id="embed1" src="<?php include 'aSrc.php' ;?>" type='video/mp4' />
 </video>
 					<div class="bottom">
@@ -351,7 +345,7 @@
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	shiping_name = xhr.responseText;
 						get();//获取弹幕
-						get_pinglun_num();//获取评论数目
+						get_pinglun_num();//获取评论数量
 						src();//获取地址
 					}else{
 						alert("接受数据发生错误");
