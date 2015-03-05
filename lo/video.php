@@ -207,6 +207,10 @@
 	function subP(){//发表评论 我把内容(neirong)发你 你保存起来
 		var b = document.getElementById("comment_text");
 		var ovalue = b.value;
+		if(ovalue == ""){
+			alert("你仿佛在刻意的逗我笑");
+			return false;
+		}
 		var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
@@ -224,8 +228,16 @@
 	}
 	function subD(){//发表弹幕(你保存 neirong   otime otop dtime这几个数据)
 		var ovalue = document.getElementById("danmu_form").value;//弹幕内容
+		if(ovalue == ""){
+			alert("你仿佛在刻意的逗我笑");
+			return false;
+		}
 		var top = Math.floor(Math.random()*400+0) + "px";//随机一个弹幕出现的位置
 		var time = document.getElementById("embed").currentTime;//视频时间
+		if(time == 0){
+			alert("还没开始呢！");
+			return false;
+		}
 		var d = new Date();
 		var str = d.getFullYear()+"."+(d.getMonth()+1)+"."+d.getDate();//视频外的时间
 		// if(time.toString().length > 3){
@@ -298,6 +310,7 @@
 					 		createD(i);
 					 	}
 						document.getElementById("dms").innerHTML = array.length;
+						document.getElementById("dm").innerHTML = array.length;
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -614,6 +627,7 @@
 					 		array1.push(ele);
 					 	}
 						document.getElementById("pls").innerHTML = array1.length;
+						document.getElementById("pl").innerHTML = array1.length;
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -641,7 +655,6 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
-						document.getElementById("dms").innerHTML = array.length;
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -655,7 +668,6 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
-						document.getElementById("pls").innerHTML = arrayP.length;
 					}else{
 						alert("接受数据发生错误");
 					}
