@@ -2013,7 +2013,7 @@
 			h.appendChild(a);
 			document.body.appendChild(h);
 		}
-		function hot_id(){//排在首页最上方的几个视频的视频名字 访问你后台的 hot_player_name.php  你对数据库进行判断 echo出6个点击最高的 用|隔开 没有6个的话 就用 无 代替 也要用|隔开哦  按照点击来排序 点击高的排在前面
+		function hot_id(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
@@ -2022,7 +2022,7 @@
 					 	var olist = document.getElementById("list");
 					 	for(var i = 0;i < array.length;i++){
 							var oli = olist.children[i];
-							oli.children[0].href = "video.html?id=" + array[i]; 
+							oli.children[0].href = "video.php?id=" + array[i]; 
 					 	}
 					}else{
 						alert("接受数据发生错误");
@@ -2032,7 +2032,7 @@
 			xhr.open("get","hot_id.php",true);
 			xhr.send(null);
 		}
-		function hot_name(){//排在首页最上方的几个视频的视频名字 访问你后台的 hot_player_name.php  你对数据库进行判断 echo出6个点击最高的 用|隔开 点击高的排在前面
+		function hot_name(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
@@ -2052,7 +2052,7 @@
 			xhr.open("get","hot_player_name.php",true);
 			xhr.send(null);
 		}
-		function hot_click(){//排在首页最上方的几个视频的视频点击量 访问你后台的 hot_click_num.php  你对数据库进行判断 echo出他们的点击量 用|隔开 点击高的排在前面
+		function hot_click(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
@@ -2071,7 +2071,7 @@
 			xhr.open("get","hot_click_num.php",true);
 			xhr.send(null);
 		}
-		function hot_up(){//排在首页最上方的几个视频的视频UP主名字 访问你后台的 hot_up_num.php  你对数据库进行判断 echo出他们的up名字 用|隔开 点击高的排在前面 与前面的一一对应
+		function hot_up(){
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
@@ -2090,29 +2090,114 @@
 			xhr.open("get","hot_up_num.php",true);
 			xhr.send(null);
 		}
-		function a_k_id(){//排在首页各个分区的几个视频的视频ID 访问你后台的 a_k_id.php  你对数据库进行判断 echo出他们的id 用|隔开(每8个用一个-隔开)  以我的主页顺序来(注意！！！！！！！！！！！！！！！！！这里的主页顺序是 动画——番剧....每个小分区都以视频的上传时间来 最新的排在最前面 不同分区干扰 下面以a_k开头的全部以这个标准 )一一对应
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function(){
-				if(xhr.readyState == 4){
-					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
-					 	var array = xhr.responseText.split("-");
-					 	for(var i = 1;i < 11;i++){
-					 		var array1 = array[i-1].split("|");
-					 		var a = "ul" + i;
-					 		var oul = document.getElementById(a);
-					 		for(var j = 0;j < 8;j++){
-					 			var oli = oul.children[j];
-					 			oli.children[0].setAttribute("id",array1[j]);
-					 			oli.children[0].href = "video.html?id=" + array1[j];
-					 		} 
-					 	}
-					}else{
-						alert("接受数据发生错误");
+		//...........................................................................................................................................................
+		function anime(){
+			function anime_id(){
+				var oul = document.getElementById("ul1");
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+						 		oul.children[i].children[0].setAttribute("id",array[i]);
+						 		oul.children[i].children[0].href = "video.php?id="+array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
 					}
-				}
-			};
-			xhr.open("get","a_k_id.php",true);
-			xhr.send(null);
+				};
+				xhr.open("get","echo_id.php?tag=anmime",true);
+				xhr.send(null);
+			}
+			function anime_name(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+						 		oul.children[i].children[0].setAttribute("name",array[i]);
+						 		oul.children[i].children[0].children[1].innerHTML = array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
+					}
+				};
+				xhr.open("get","echo_name.php?tag=anmime",true);
+				xhr.send(null);
+			function anime_play_num(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+						 		oul.children[i].children[0].setAttribute("play_num",array[i]);
+						 		oul.children[i].children[1].children[1].innerHTML = array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
+					}
+				};
+				xhr.open("get","echo_click_num.php?tag=anmime",true);
+				xhr.send(null);
+			}
+			function anime_danmu_num(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+						 		oul.children[i].children[1].children[3].innerHTML = array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
+					}
+				};
+				xhr.open("get","echo_danmu_num.php?tag=anmime",true);
+				xhr.send(null);
+			}
+			function anime_danmu_num(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+					 			oul.children[i].children[0].setAttribute("danmu_num",array[i]);
+						 		oul.children[i].children[1].children[3].innerHTML = array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
+					}
+				};
+				xhr.open("get","echo_danmu_num.php?tag=anmime",true);
+				xhr.send(null);
+			}
+			function anime_pinglun_num(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						 	var array = xhr.responseText.split("|");
+						 	for(var i = 0;i < array.length-1;i++){
+						 		oul.children[i].children[1].children[3].innerHTML = array[i];
+						 	}
+						}else{
+							alert("接受数据发生错误");
+						}
+					}
+				};
+				xhr.open("get","echo_danmu_num.php?tag=anmime",true);
+				xhr.send(null);
+			}
 		}
 		function a_k_name(){//排在首页各个分区的几个视频的视频名称 访问你后台的 a_k_name.php  你对数据库进行判断 echo出他们的name名字 用|隔开(每8个用一个-隔开) 点以我的主页顺序来一一对应
 			var xhr = new XMLHttpRequest();

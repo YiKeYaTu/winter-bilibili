@@ -411,3 +411,21 @@ h2{
 	width: 550px;
 	background: none;
 }
+#cookieName,#cookiePic{
+	display: none;
+}
+#turnU{
+	margin: 6px 10px;
+	width: 32px;
+	height: 32px;
+	float: right;
+	border-radius: 4px;
+	background: url("http://static.hdslb.com/templets/images/1.jpg");
+	background-position: -8px 0px;
+}
+#ff{
+	float: right;
+}
+#outU{
+	margin-right:10px; 
+}

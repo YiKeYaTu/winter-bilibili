@@ -1,3 +1,6 @@
+<?php
+include "cookies.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,9 +20,12 @@
 			<a href="">游戏中心</a>
 			<a href="">直播</a>
 			<a href="">手机端</a>
-			<a style="color:red;" href="user.html">个人中心</a>
 			<input class="btn btn-info" id="loginH" type="button" value="登陆">
-			<input class="btn btn-info" id="regH"type="button" value="注册">
+			<input class="btn btn-info" id="regH" type="button" value="注册">
+			<form id="ff" action="" method="post">
+				<input id="outU" type="button" value="登出" class="btn btn-info">
+			</form>
+			<a id="turnU" href="user.php"></a>
 		</div>
 	</div>
 	<div class="bg">
@@ -142,6 +148,16 @@
 		</div>
 	</div>
 	</div>
+	<div id="cookieName">
+		<?php 
+			echo $tiaozhuan;
+		 ?>
+	</div>
+	<div id="cookiePic">
+		<?php 
+			echo $picture;
+		 ?>
+	</div>
 	<script type="text/javascript">
 	var array = new Array;
 	var arrayP = new Array;
@@ -155,11 +171,11 @@
 	var osub = document.getElementById("sub");
 	var osub1 = document.getElementById("sub1");
 	var time1;
+	var click_n = true;
 	get();
 	get_name();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
-			alert(5);
 			window.location.href = "login.html";
 		}
 		document.getElementById("regH").onclick = function(){
@@ -169,13 +185,14 @@
 	lore();
 	osub1.onclick = function(){
 		subP();
-		// send_pinglun_num();
+		send_pinglun_num();
 	}
 	osub.onclick = function(){
 		subD();
-		// send_danmu_num();
+		send_danmu_num();
 	}
 	document.getElementById("embed").onplay = function(){
+
 		var a = document.getElementById("object").getElementsByTagName("span");
 		for(var i = 0;i < a.length;i++){
 			var time = parseInt(a[i].style.left.split("px")[0]);
@@ -184,6 +201,10 @@
 			},time*10.66)
 		}
 		g();
+		if(click_n == true&&shiping_name != undefined){
+			send_click_num();
+			click_n = false;
+		}
 	}
 	document.getElementById("embed").onpause = function(){
 		var a = document.getElementById("object").getElementsByTagName("span");
@@ -205,6 +226,13 @@
 			xhr.send(null);
 	}
 	function subP(){//发表评论 我把内容(neirong)发你 你保存起来
+		var upname = document.getElementById("cookieName");
+		if(upname.innerHTML == ""){
+			alert("请先登录");
+			return false;
+		}
+		upname = upname.innerHTML;
+		var picture = document.getElementById("cookiePic").innerHTML;
 		var b = document.getElementById("comment_text");
 		var ovalue = b.value;
 		if(ovalue == ""){
@@ -223,7 +251,7 @@
 					}
 				}
 			};
-			xhr.open("get","getP.php?ovalue="+ovalue+"&name="+shiping_name,true);
+			xhr.open("get","getP.php?ovalue="+ovalue+"&name="+shiping_name+"&upname="+upname+"&picture="+picture,true);
 			xhr.send(null);
 	}
 	function subD(){//发表弹幕(你保存 neirong   otime otop dtime这几个数据)
@@ -258,6 +286,7 @@
 						danmu.style.border = "2px solid #fff";
 						danmu.style.minWidth = "100px";
 						danmu.style.textAlign = "center";
+						danmu.style.whiteSpace = "nowrap";
 						document.getElementById("object").appendChild(danmu);
 						$(danmu).animate({
 							left:"-100px"
@@ -336,6 +365,7 @@
 					a.style.fontSize = "14px";
 					a.style.minWidth = "100px";
 					a.style.textAlign = "center";
+					a.style.whiteSpace = "nowrap";
 					document.getElementById("object").appendChild(a);
 					$(a).animate({
 						left:"-100px"
@@ -362,6 +392,11 @@
 						get_pinglun_num();//获取评论数量
 						src();//获取地址
 						get_video_tag();//获取视频标签
+						get_up();//获取up主
+						get_click_num();//获取点击数量
+						get_video_time();//获取视频上传时间
+						get_video_int();//获取视频简介
+						jud();//判断登陆
 					}else{
 						alert("接受数据发生错误");
 					}
@@ -398,9 +433,11 @@
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
 					 	var array = xhr.responseText.split("|");
 					 	var array1 = new Array;
-					 	for(var i = 0;i < array.length-1;i++){
+					 	for(var i = 0;i < array.length-1;i+=3){
 					 		var ele = {};
 					 		ele.value = array[i];
+					 		ele.img = array[i+2];
+					 		ele.name = array[i+1];
 					 		array1.push(ele);
 					 	}
 					 	arrayP.length = array1.length;
@@ -518,7 +555,7 @@
 									 	k++;
 									 	};
 								 	}
-					 				lbtn2.style.top = 1136 -236  + neirong.offsetHeight - 63 + "px";
+					 				lbtn2.style.top = 1136 -236  + neirong.offsetHeight - 70 + "px";
 							 		ospan.style.top = 1136 - 236 + neirong.offsetHeight - 60 + "px";
 							 		bottom.children[bottom.children.length-1].style.background = "#FAFAFA";
 							 		bottom.children[bottom.children.length-1].style.border = "none";
@@ -578,14 +615,14 @@
 												
 							 			}
 							 		}
-					 				lbtn2.style.top = 1136 -236 + neirong.offsetHeight - 63 + "px";
+					 				lbtn2.style.top = 1136 -236 + neirong.offsetHeight - 70 + "px";
 							 		ospan.style.top = 1136 -236 + neirong.offsetHeight - 60 + "px";
 							 	}
 							 	ospan.style.top = 1136 -236 + neirong.offsetHeight - 10 + "px";
 					 			ospan.innerHTML = "共" + num + "页/" + num1 + "条评论";
 							 	bottom.style.positon = "relative";
 							 	
-					 			lbtn2.style.top = 1136 -236 + neirong.offsetHeight - 13 + "px";
+					 			lbtn2.style.top = 1136 -236 + neirong.offsetHeight - 18 + "px";
 							 	bottom.style.marginTop = "10px";
 							 	bottom.insertBefore(btn,bottom.children[0]);
 					 		}
@@ -647,7 +684,7 @@
 					}
 				}
 			};
-			xhr.open("get","getU.php?name="+shiping_name,true);
+			xhr.open("get","echoU.php?name="+shiping_name,true);
 			xhr.send(null);
 		}//根据视频name找到up主
 		function send_danmu_num(){
@@ -655,12 +692,13 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("up").innerHTML = xhr.responseText;
 					}else{
 						alert("接受数据发生错误");
 					}
 				}
 			};
-			xhr.open("get","getDN.php?name" + shiping_name+"&number="+array.length,true);
+			xhr.open("get","getDN.php?name=" + shiping_name+"&number="+(array.length+1),true);
 			xhr.send(null);
 		}
 		function send_pinglun_num(){
@@ -673,8 +711,77 @@
 					}
 				}
 			};
-			xhr.open("get","getPN.php?name" + shiping_name+"&number="+arrayP.length,true);
+			xhr.open("get","getPN.php?name=" + shiping_name+"&number="+(arrayP.length+1),true);
 			xhr.send(null);
+		}
+		function send_click_num(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","getCN.php?name=" + shiping_name,true);
+			xhr.send(null);
+		}
+		function get_click_num(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("ps").innerHTML = xhr.responseText;
+						document.getElementById("pn").innerHTML = xhr.responseText;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","echo_click_num.php?name=" + shiping_name,true);
+			xhr.send(null);
+		}
+		function get_video_time(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("data").innerHTML = xhr.responseText;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","echo_video_time.php?name=" + shiping_name,true);
+			xhr.send(null);
+		}
+		function get_video_int(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200&&xhr.status < 300||xhr.status == 304){
+						document.getElementById("tag").innerHTML = xhr.responseText;
+					}else{
+						alert("接受数据发生错误");
+					}
+				}
+			};
+			xhr.open("get","echoVI.php?name=" + shiping_name,true);
+			xhr.send(null);
+		}
+		function jud(){
+			if(document.getElementById("cookieName").innerHTML.replace(/(^\s*)|(\s*$)/g,'') == ""){
+				document.getElementById("loginH").style.display = "block";
+				document.getElementById("regH").style.display = "block";
+				document.getElementById("turnU").style.display = "none";
+				document.getElementById("outU").style.display = "none";
+			}else{
+				document.getElementById("loginH").style.display = "none";
+				document.getElementById("regH").style.display = "none";
+				document.getElementById("turnU").style.display = "block";	
+				document.getElementById("outU").style.display = "block";		
+			}
 		}
 		
 	</script>
