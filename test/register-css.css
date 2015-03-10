@@ -1,0 +1,155 @@
+*{
+	font-size: 14px;
+	line-height: 1.428;
+}
+p{
+	margin-bottom: 10px;
+}
+ul,li{
+	padding:0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}.btn-info{
+	width: 430px;
+	margin: 10px 0 0 275px;
+	display: block;
+}
+.p1{
+	position: absolute;
+	color: rgb(243,92,143);
+}
+#p1{
+	top: 245px;
+	left: 1200px;
+}
+#p2{
+	top: 315px;
+	left: 1200px;
+}
+#p3{
+	top: 385px;
+	left: 1200px;
+}
+#p4{
+	top: 455px;
+	left: 1200px;
+}
+.form-control{
+	border: 1px solid #dfdfdf;
+	margin: 0 auto;
+	width: 440px;
+	margin-top: 30px;
+}
+span{
+	font-size: 12px !important;
+}
+.accpt{
+	color: #35a3d6;
+	font-size: 12px !important;
+}
+a:hover{
+	color: rgb(243,92,143);
+}
+.check{
+	margin: 12px 0 0 270px !important;
+	width: 14px;
+	height: 14px;
+	position: relative;
+	top: 3px;
+}
+.top,.top-bg,.footer,.footer-z{
+	width: 100%;
+	background: #FAFAFA;
+;
+}
+.top div,.top-bg div,.title,.content,.footer_content,.footer-z_content{
+	margin: 0 auto;
+	width: 980px;
+}
+.top{
+	background: #f1f1f1;
+}
+.top div{
+	height: 44px;
+}
+.top-bg{
+	background: url("image/blue.png");
+}
+.top-bg div{
+	height: 108px;
+	background: url("image/top-bg.png");
+}
+.top_content img{
+	margin-right: 10px;
+	position: relative;
+	top: -2px;
+}
+.top_content a{
+	color: #45484b;
+	line-height: 44px;
+	margin-right: 30px;
+}
+.top_content a:hover{
+	color: rgb(243,92,143);
+}
+.title{
+	height: 50px;
+	background: url("https://static-s.bilibili.com/account/img/t1.png") no-repeat 50%;
+}
+.title div{
+	width: 430px;
+	height: 2px;
+	float: left;
+	margin-top: 28px;
+	background: #f1f1f1;
+}
+.bg{
+	margin-right: 120px;
+}
+.content{
+	height: 605px;
+	overflow: hidden;
+}
+
+.login{
+	position: relative;
+	top: 5px;
+	color: #35a3d6;
+	font-size: 12px;
+	margin: 0 0 0 565px;
+}
+.footer_content .divo{
+	width: 245px;
+	height: 110px;
+	float: left;
+	margin-top: 10px;
+	border-right:1px solid #dddddd;
+}
+.divo div{
+	margin: 5px 0 0 20px;
+	font-size: 12px;
+}
+.divo div a {
+	font-size: 12px;
+	color: #45484b;
+}
+.divo div a:hover{
+	color: rgb(243,92,143);
+}
+.footer-z_content{
+	height: 190px;
+}
+.footer-z_content div{
+	width: 379px;
+	height: 53px;
+	background: url("image/a.jpg");
+	float: left;
+}
+.footer-z_content div + div{
+	margin-left: 20px;
+	width: 550px;
+	background: none;
+}
+
