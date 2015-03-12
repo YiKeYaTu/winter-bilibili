@@ -28,7 +28,7 @@ include "cookies.php";
 	</div>
 	<div class="bg">
 		<div class="bg_content">
-			<img src="http://static.hdslb.com/images/header/2014_christmas_logo.png">
+			<img src="http://static.hdslb.com/images/header/2015_spring_logo.png">
 		</div>
 	</div>
 	<div class="num">
