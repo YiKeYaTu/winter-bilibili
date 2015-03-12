@@ -63,9 +63,9 @@ include "cookies.php";
 					<input type="button" class="sortable" value="动画">
 					<input type="button" class="sortable" value="番剧">
 					<input type="button" class="sortable" value="音乐">
+					<input type="button" class="sortable" value="舞蹈">
 					<input type="button" class="sortable" value="游戏">
 					<input type="button" class="sortable" value="科技">
-					<input type="button" class="sortable" value="舞蹈">
 					<input type="button" class="sortable" value="娱乐">
 					<input type="button" class="sortable" value="鬼畜">
 					<input type="button" class="sortable" value="电影">
@@ -272,7 +272,7 @@ include "cookies.php";
 					</div>
 				</div>
 				<div class="a-l">
-					<div class="a-l-head">
+					<div class="a-l-head" id="fanju">
 						<img style="float:left"src="image/b.png" alt="">
 						<a href="">番剧</a>
 						<a id="a1" class="a-b" href="">有新动态</a>
@@ -1441,12 +1441,76 @@ include "cookies.php";
 		var element = document.getElementById("nav");
 		element.style.top = window.innerHeight-320 + "px";
 		element.style.left = (window.document.body.offsetWidth - 980)/2 + 1000 + "px";
-		if(document.body.scrollTop > 200&&document.body.scrollTop < 620){
+		if(document.body.scrollTop > 100&&document.body.scrollTop < 520){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
 			element.children[0].style.background = "#00a1d6";
 			element.children[0].style.color = "#fff";
-		}else if(document.body.scrollTop >= 620&&document.body.scrollTop < 1040){
+		}else if(document.body.scrollTop >= 520&&document.body.scrollTop < 940){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
 			element.children[1].style.background = "#00a1d6";
 			element.children[1].style.color = "#fff";
+		}else if(document.body.scrollTop >= 940&&document.body.scrollTop < 1360){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[2].style.background = "#00a1d6";
+			element.children[2].style.color = "#fff";
+		}else if(document.body.scrollTop >= 1360&&document.body.scrollTop < 1780){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[3].style.background = "#00a1d6";
+			element.children[3].style.color = "#fff";
+		}else if(document.body.scrollTop >= 1780&&document.body.scrollTop < 2200){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[4].style.background = "#00a1d6";
+			element.children[4].style.color = "#fff";
+		}else if(document.body.scrollTop >= 2200&&document.body.scrollTop < 2620){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[5].style.background = "#00a1d6";
+			element.children[5].style.color = "#fff";
+		}else if(document.body.scrollTop >= 2620&&document.body.scrollTop < 3040){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[6].style.background = "#00a1d6";
+			element.children[6].style.color = "#fff";
+		}else if(document.body.scrollTop >= 3040&&document.body.scrollTop < 3460){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[7].style.background = "#00a1d6";
+			element.children[7].style.color = "#fff";
+		}else if(document.body.scrollTop >= 3460&&document.body.scrollTop < 3600){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[8].style.background = "#00a1d6";
+			element.children[8].style.color = "#fff";
+		}else if(document.body.scrollTop >= 3600&&document.body.scrollTop < 4020){
+			for(var i = 0;i < element.children.length-1;i++){
+				element.children[i].style.background = "#fafafa";
+				element.children[i].style.color = "#000";
+			}
+			element.children[9].style.background = "#00a1d6";
+			element.children[9].style.color = "#fff";
 		}
 
 	}
@@ -1457,6 +1521,100 @@ include "cookies.php";
 	window.onscroll = function(){
 		fixed();
 	}
+	function fixOver(){
+		var element = document.getElementById("nav");
+		for(var i = 0;i < nav.children.length;i++){
+			nav.children[i].onmouseover = function(){
+				for(var j = 0;j < nav.children.length-1;j++){
+					nav.children[j].style.background = "#fafafa";
+					nav.children[j].style.color = "#000";
+				}
+				this.style.backgroundColor = "rgb(170,170,170)";
+			}
+		}
+	}
+	fixOver();
+	function fixOut(){
+		for(var i = 0;i < nav.children.length;i++){
+			nav.children[i].onmouseout = function(){
+				for(var j = 0;j < nav.children.length-1;j++){
+					nav.children[j].style.background = "#fafafa";
+					nav.children[j].style.color = "#000";
+				}
+			}
+		}
+	}
+	fixOut();
+	function fixClick(){
+		var element = document.getElementById("nav");
+		element.children[0].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"100px"
+			},800)
+
+		}
+		element.children[1].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"520px"
+			},800)
+
+		}
+		element.children[2].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"940px"
+			},800)
+
+		}
+		element.children[3].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"1520px"
+			},800)
+
+		}
+		element.children[4].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"1780px"
+			},800)
+
+		}
+		element.children[5].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"2200px"
+			},800)
+
+		}
+		element.children[6].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"2620px"
+			},800)
+
+		}
+		element.children[7].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"3040px"
+			},800)
+
+		}
+		element.children[8].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"3460px"
+			},800)
+
+		}
+		element.children[9].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"3600"
+			},800)
+
+		}
+		element.children[10].onclick = function(){
+			$('html,body').animate({
+				scrollTop:"0"
+			},800)
+
+		}
+	}
+	fixClick();
 	function lore(){
 		document.getElementById("loginH").onclick = function(){
 			window.location.href = "login.html";
